@@ -1,0 +1,17 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, VegaLedProject
+@using VegaLedProject.Areas.Admin.Models
+@model RoleViewModel
+
+@{
+    ViewData["Title"] = "CreateRole";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post">
+    <div class="form-group">
+        <label>Rol Adı</label>
+        <input type="text" name="Name" class="form-control" />
+    </div>
+    <button class="btn btn-info">Kaydet</button>
+</form>

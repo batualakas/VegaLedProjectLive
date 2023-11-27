@@ -1,0 +1,46 @@
+﻿@using EntityLayer.Concrete;
+@using VegaLedProject.Areas.Admin.Models
+@model List<Hizmetlerimiz>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, VegaLedProject
+
+
+@{
+
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Projelerimiz</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>Projenin ID'si</th>
+        <th>Başlık</th>
+        <th>Açıklama</th>
+        <th>Resim</th>
+        
+        <th>Sil</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+       
+        {
+            <tr>
+                <td>@item.HizmetlerimizId</td>
+                <td>@item.Title</td>
+                <td>@item.Description</td>
+                <td> <img src="~/images/OurServices/@item.ImagePath" style="width:100px; height:100px;" /></td>
+              
+                <td><a asp-area="Admin" asp-controller="Home" asp-action="Delete" asp-route-id="@item.HizmetlerimizId" method="get" class="btn btn-sm btn-danger delete"> Sil</a></td>
+
+            </tr>
+        }
+
+    }
+
+</table>
+<a asp-area="Admin" asp-controller="Home" asp-action="New" class="btn btn-outline-primary">Yeni Proje Oluştur</a>
+
+
+
